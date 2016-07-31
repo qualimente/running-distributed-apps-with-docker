@@ -1,0 +1,22 @@
+version: "2"
+
+services:
+  vote:
+    image: 'gaiadocker/example-voting-app-vote:latest'
+    ports:
+      - "5000:80"
+
+  redis:
+    image: redis:alpine
+    ports: ["6379"]
+
+  worker:
+    image: 'gaiadocker/example-voting-app-worker:latest'
+
+  db:
+    image: postgres:9.4
+
+  result:
+    image: 'gaiadocker/example-voting-app-result:latest'
+    ports:
+      - "5001:80"
