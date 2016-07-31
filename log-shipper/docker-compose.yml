@@ -1,0 +1,33 @@
+version: '2'
+
+networks:
+  local:
+  log:
+    external: true
+
+services:
+  logstash:
+    image: logstash:2.3.4-1
+    command: -f /logstash.conf
+    volumes:
+      - ./logstash.conf:/logstash.conf:ro
+    ports:
+      - "5000:5000/udp"
+    networks:
+      - local
+      - log
+    environment:
+      LOGSPOUT: 'ignore'
+    restart: always
+
+  logspout:
+    image: gliderlabs/logspout:v3
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock
+    command: syslog://logstash:5000
+    networks:
+      - local
+    environment:
+      DEBUG: 'true'
+      LOGSPOUT: 'ignore'
+    restart: always

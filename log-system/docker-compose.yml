@@ -1,5 +1,9 @@
 version: '2'
 
+networks:
+  log:
+    external: true
+
 services:
   elasticsearch:
     image: elasticsearch:2.3.4
@@ -7,9 +11,12 @@ services:
     ports:
       - "9200:9200"
       - "9300:9300"
+    networks:
+      - log
+
   kibana:
     image: kibana:4.5.3
     ports:
       - "5601:5601"
-    links:
-      - elasticsearch
+    networks:
+      - log
