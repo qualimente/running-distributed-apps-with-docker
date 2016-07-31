@@ -1,6 +1,6 @@
 # Overview #
 
-This repo contains resoruces for the 'Running Distributed Apps from localhost to AWS' talk.
+This repo contains resoruces for the ['Running Distributed Apps from localhost to AWS'](https://www.meetup.com/Docker-Phoenix/events/232976147/) talk.
 
 ## Script ##
 
@@ -8,13 +8,11 @@ This repo contains resoruces for the 'Running Distributed Apps from localhost to
 wget -O docker-compose https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m`
 chmod 755 docker-compose
 
-git clone https://github.com/dockerinaction/ch11_notifications.git
+git clone git@github.com:qualimente/running-distributed-apps-with-docker.git
 
-or 
+or
 
-wget https://github.com/dockerinaction/ch11_notifications/archive/master.zip
-
-unzip master.zip
+wget https://raw.githubusercontent.com/qualimente/running-distributed-apps-with-docker/master/example-voting-app/docker-compose.yml
 
 ```
 
