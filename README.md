@@ -49,7 +49,7 @@ docker-compose up --force-recreate
 docker-compose bundle
 
 # deploy to SwarmV2
-export DOCKER_HOST=ec2-52-53-218-126.us-west-1.compute.amazonaws.com:2375
+export DOCKER_HOST=ec2-54-183-78-22.us-west-1.compute.amazonaws.com:2375
 docker stack deploy examplevotingapp
 docker stack ps examplevotingapp
 less examplevotingapp.dab
